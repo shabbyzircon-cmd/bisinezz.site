@@ -1,0 +1,49 @@
+---
+import '../styles/globals.css';
+
+// Layout.astro
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Сайти для малого бізнесу за 24 години',
+  description = 'Створюємо сучасні сайти для малого бізнесу. 100$ фіксована ціна, готово за 24 години.'
+} = Astro.props;
+
+const ogImage = new URL('/logo.png', Astro.site || Astro.url.origin);
+---
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Основные мета-теги -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="google-site-verification" content="CJ5RFTj4F2-ObQkiSmwqKdWEVFYj3f3pU-ZpkGMU8tY" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

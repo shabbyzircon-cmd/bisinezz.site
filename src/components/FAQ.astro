@@ -1,0 +1,39 @@
+---
+// FAQ.astro
+---
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+  <div class="container mx-auto max-w-3xl">
+    <h2 class="font-manrope font-800 text-4xl md:text-5xl text-center mb-16 animate-slideUp">
+      Часті <span class="text-cyan-glow">запитання</span>
+    </h2>
+    <div class="space-y-4">
+      {[
+        { q: 'Скільки точно коштує?', a: '100$ одноразово. Хостинг у подарунок.' },
+        { q: 'Чи потрібен мені домен?', a: 'Так, домен необхідний. Підберемо красивий та недорогий домен.' },
+        { q: 'А якщо мені не сподобається?', a: '2 дня на правки. Якщо справді не задоволені — повернемо гроші.' },
+        { q: 'Чи буде сайт у Google?', a: 'Так. Налаштовуємо SEO, додаємо у Google Карти.' },
+        { q: 'Чи можу я редагувати сайт сам?', a: 'Можете. Передаємо весь код і документацію. Або платіть 10$ за правку.' },
+        { q: 'Скільки сторінок входить?', a: '5 екранів: головна, про, послуги, ціни, контакти. Додаткові — 10$ за екран.' },
+        { q: 'Коли буде готово?', a: 'За 24 години з моменту замовлення та завантаження контенту.' },
+        { q: 'Яка гарантія?', a: 'Повна гарантія задоволення. Якщо не вподобається — 100% повернення грошей.' },
+      ].map(item => (
+        <details class="group glass-effect rounded-lg cursor-pointer overflow-hidden">
+          <summary class="px-6 py-4 flex items-center justify-between font-manrope font-700 text-lg hover:bg-white/5 transition-colors">
+            <span>{item.q}</span>
+            <svg 
+              class="text-cyan-glow ml-4 w-5 h-5 group-open:rotate-180 transition-transform duration-300 flex-shrink-0" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 pt-4 text-gray-300 border-t border-white/10 leading-relaxed">
+            {item.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

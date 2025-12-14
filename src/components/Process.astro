@@ -1,0 +1,37 @@
+---
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+  <div class="container mx-auto">
+    <h2 class="font-manrope font-800 text-4xl md:text-5xl text-center mb-16 animate-slideUp">
+      Як ми створюємо сайт за <span class="text-cyan-glow">1 день</span>
+    </h2>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="relative">
+        <div class="absolute left-4 sm:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-glow to-coral-glow sm:transform sm:-translate-x-1/2"></div>
+
+        <div class="space-y-8 sm:space-y-12">
+          {[
+            { num: '01', title: 'Консультація', desc: 'Розумієм вашу нішу та потреби (30 хвилин)' },
+            { num: '02', title: 'Дизайн', desc: 'Створюємо макет в figma (2-3 години)' },
+            { num: '03', title: 'Розробка', desc: 'Кодимо швидкий адаптивний сайт (3-4 години)' },
+            { num: '04', title: 'SEO', desc: 'Налаштовуємо для топу в Google (1 година)' },
+            { num: '05', title: 'Тестування', desc: 'Перевіряємо на всіх пристроях (1 година)' },
+            { num: '06', title: 'Запуск', desc: 'Деплой на хостинг. Сайт live! (30 хвилин)' },
+          ].map((step, idx) => (
+            <div key={idx} class={`relative pl-24 sm:pl-0 ${idx % 2 === 0 ? 'sm:pr-1/2' : 'sm:ml-1/2'}`}>
+              <div class={`absolute left-0 top-0 w-10 h-10 rounded-full bg-gradient-to-r from-cyan-glow to-coral-glow flex items-center justify-center font-bold text-black z-10 sm:left-1/2 sm:transform sm:-translate-x-1/2`}>
+                {step.num}
+              </div>
+              <div class="glass-effect p-6 rounded-lg">
+                <h3 class="font-manrope font-700 text-xl mb-2">{step.title}</h3>
+                <p class="text-gray-300">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+  <div class="container mx-auto">
+    <h2 class="font-manrope font-800 text-4xl md:text-5xl text-center mb-16 animate-slideUp">
+      Додаткові <span class="text-cyan-glow">опції</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {[
+        { name: 'SEO Ready', role: 'Входить у замовлення', text: 'Все для швидкої та якісної індексації сайту - Robots.txt, Sitemap, Open Graph теги'},
+        { name: 'Google', role: 'Опція', text: 'Додаємо домен у Google Search Console, підключаємо Google Analytics, реєструємо в Google Maps'},
+        { name: 'Відгуки в Google', role: 'Опція', text: 'Розміщуємо позитивні відгуки клієнтів у Google, текст і швидкість публікації узгоджуємо з Вами'},
+        { name: 'Форма зв’язку', role: 'Опція', text: 'Додаткові канали зв’язку - Телеграм чат-бот, форма Google або Tally'},
+      ].map((testimonial, idx) => (
+        <div key={idx} class="glass-effect p-8 rounded-lg card-hover group">
+          <div class="flex items-center gap-4 mb-4">
+            
+            <div>
+              <h4 class="font-manrope font-700 text-lg">{testimonial.name}</h4>
+              <p class="text-sm text-gray-400">{testimonial.role}</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"{testimonial.text}"</p>
+          
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

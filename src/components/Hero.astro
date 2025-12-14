@@ -1,0 +1,106 @@
+---
+---
+
+<section class="min-h-screen flex items-center justify-center relative overflow-hidden bg-black pt-20 pb-20">
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-glow/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-coral-glow/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center animate-slideDown">
+      <h1 class="font-manrope font-800 text-4xl sm:text-5xl md:text-7xl leading-tight mb-6 gradient-text">
+        Сайт для Вашого Бізнесу
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4">
+        Всього за <span class="text-cyan-glow font-bold text-2xl">100$</span>
+      </p>
+      <p class="text-sm sm:text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+        Безкоштовний хостинг • Вартість хостингу сайту - близько 10$ на місяць або 120$ на рік, тому сайт ви отримуєте безкоштовно
+      </p>
+
+      <div class="mb-12 flex justify-center">
+        <div class="glass-effect px-6 sm:px-8 py-4 sm:py-6 rounded-lg">
+          <p class="text-xs sm:text-sm text-gray-400 mb-2">До кінця акції:</p>
+          <div id="timer" class="flex items-center justify-center gap-3 sm:gap-4">
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-glow" id="hours">23</div>
+              <div class="text-xs sm:text-sm text-gray-400">год</div>
+            </div>
+            <div class="text-2xl sm:text-3xl md:text-4xl text-cyan-glow">:</div>
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-glow" id="minutes">59</div>
+              <div class="text-xs sm:text-sm text-gray-400">хв</div>
+            </div>
+            <div class="text-2xl sm:text-3xl md:text-4xl text-cyan-glow">:</div>
+            <div class="text-center">
+              <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-glow" id="seconds">59</div>
+              <div class="text-xs sm:text-sm text-gray-400">сек</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="openContactModal()" class="group relative px-8 py-4 bg-gradient-to-r from-cyan-glow to-cyan-500 text-black font-bold text-lg rounded-lg hover:shadow-lg hover:shadow-cyan-glow/50 transition-all duration-300 transform hover:scale-105">
+          <span class="relative">Замовити сайт →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTimer() {
+    const SESSION_KEY = 'timerStartTime';
+    const now = new Date();
+    let startTime: string | null = sessionStorage.getItem(SESSION_KEY);
+
+    if (!startTime) {
+      const startTimeNum = now.getTime();
+      sessionStorage.setItem(SESSION_KEY, startTimeNum.toString());
+      startTime = startTimeNum.toString();
+    }
+
+    function updateTimer() {
+      const currentTime = new Date().getTime();
+      const sessionStartStr: string | null = sessionStorage.getItem(SESSION_KEY);
+      
+      if (!sessionStartStr) return;
+      
+      const sessionStart: number = parseInt(sessionStartStr, 10);
+      const elapsedTime = currentTime - sessionStart;
+
+      const endOfDay = new Date();
+      endOfDay.setHours(23, 59, 59, 999);
+      const endOfDayTime = endOfDay.getTime();
+
+      const remaining = Math.max(0, endOfDayTime - sessionStart - elapsedTime);
+
+      if (remaining > 0) {
+        const hours = Math.floor((remaining / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((remaining / (1000 * 60)) % 60);
+        const seconds = Math.floor((remaining / 1000) % 60);
+
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        if (hoursEl) {
+          hoursEl.textContent = String(hours).padStart(2, '0');
+        }
+        if (minutesEl) {
+          minutesEl.textContent = String(minutes).padStart(2, '0');
+        }
+        if (secondsEl) {
+          secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+      }
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  }
+
+  initTimer();
+</script>

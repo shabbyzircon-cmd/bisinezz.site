@@ -1,0 +1,49 @@
+---
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+  <div class="container mx-auto max-w-3xl">
+    <h2 class="font-manrope font-800 text-4xl md:text-5xl text-center mb-16 animate-slideUp">
+      Все що вам потрібно — <span class="text-coral-glow">всього за 100$</span>
+    </h2>
+
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-cyan-glow/20 to-coral-glow/20 rounded-2xl blur-xl"></div>
+      <div class="glass-effect p-8 sm:p-12 rounded-2xl relative">
+        <div class="text-center mb-8">
+          <p class="text-6xl md:text-7xl font-bold gradient-text mb-4">100$</p>
+          <p class="text-gray-400">Один платіж. Без передплат. Без прихованих комісій.</p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          {[
+            '✅ Адаптивний, швидкий сайт',
+            '✅ Безкоштовний хостинг',
+            '✅ SEO оптимізація',
+            '✅ Мобільна версія',
+            '✅ 5 сторінок вмісту',
+            '✅ Форма контактів',
+            '✅ 10 вiдгукiв у Google Maps',
+            '✅ Карантин 2 дні для правок',
+            '✅ SSL сертифікат (https://)',
+            '✅ Резервна копія сайту',
+            '✅ Оплата після Вашого узгодження',
+          ].map((feature, idx) => (
+            <div key={idx} class="flex items-center gap-3 text-gray-200">
+              <span class="text-cyan-glow">→</span>
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        <button onclick="openContactModal()" class="w-full group relative px-8 py-4 bg-gradient-to-r from-cyan-glow to-cyan-500 text-black font-bold text-lg rounded-lg hover:shadow-lg hover:shadow-cyan-glow/50 transition-all duration-300 transform hover:scale-105">
+          <span class="relative">Замовити сайт за 100$ →</span>
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-4">
+          Гарантія повернення грошей, якщо не задоволені.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
