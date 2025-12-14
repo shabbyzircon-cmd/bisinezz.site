@@ -27,6 +27,15 @@ const ogImage = new URL('/logo.png', Astro.site || Astro.url.origin);
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="google-site-verification" content="CJ5RFTj4F2-ObQkiSmwqKdWEVFYj3f3pU-ZpkGMU8tY" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9V0B8EHDN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9V0B8EHDN');
+    </script>
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
